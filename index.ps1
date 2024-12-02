@@ -17,3 +17,31 @@ $data = @(
 $data | Export-Csv -Path $csvFilePath -NoTypeInformation
 
 Write-Host "Data successfully written to $csvFilePath"
+
+2 reads the CSV file, retrieves specific values, and e.g hello
+
+# Define the file path to the CSV
+$csvFilePath = "/Users/ryotaaoki/Desktop/Vanier College/intro web enviromentt/block 1/Ryota Aoki Assignment 1/Ryota Aoki Assignment 1.csv"
+
+# Import the CSV file
+$data = Import-Csv -Path $csvFilePath
+
+# Filter rows where the "name" column equals "hello"
+$filteredData = $data | Where-Object { $_.name -eq "hello" }
+
+# Define the file path to the CSV
+$csvFilePath = "/Users/ryotaaoki/Desktop/Vanier College/intro web enviromentt/block 1/Ryota Aoki Assignment 1/Ryota Aoki Assignment 1.csv"
+
+# Import the CSV file
+$data = Import-Csv -Path $csvFilePath
+
+# Filter rows where the "name" column equals "hello"
+$filteredData = $data | Where-Object { $_.name -eq "hello" }
+
+# Display the filtered data
+if ($filteredData) {
+    Write-Host "Found the following records for 'hello':"
+    $filteredData | Format-Table -AutoSize
+} else {
+    Write-Host "No records found for 'hello'."
+}
